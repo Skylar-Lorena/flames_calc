@@ -1,38 +1,40 @@
-import React, {useState} from 'react';
-import { TextInput, TouchableOpacity, StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
 import Constants from 'expo-constants';
 
 export default LoveCalculator = () => {
-    const [maleName, setMaleName]= useState('');
-    const [femaleName, setFemaleName]= useState('');
-    const [isLoading, setIsLoading]= useState(false);
-    const [flamesResult, setFlamesResult]=useState(null);
+  const [maleName, setMaleName] = useState('');
+  const [femaleName, setFemaleName] = useState('');
+  const [isLoading, setLoading] = useState(false);
+  const [flamesResult, setFlamesResult] = useState(null);
 
-    const calculateLove= async ()=>{
-        const API_URL = `http://flames-love-calculator.p.rapidapi.com/flame/${maleName}/${femaleName}`;
-        const options= {
-            method: 'GET',
-            headers:{
+  const calculateLove = async () => {
+    const API_URL = `https://flames-love-calculator.p.rapidapi.com/flame/${maleName}/${femaleName}`;
+    const options = {
+      method: 'GET',
+      headers: {
         'x-rapidapi-key': 'bfbdf2878cmsh4edd65a2a1bb0ffp168e2fjsn08e891f3dd9c',
         'x-rapidapi-host': 'flames-love-calculator.p.rapidapi.com'
+      }
+    };
 
-            }
-        };
-    
-    setIsLoading(true);
-    try{
-        const response= await fetch(API_URL, options);
-        const result= await response.json();
-        console.log(result);
-        setFlamesResult(result);
-        setIsLoading(false);
-    }catch (error){
-        console.error(error);
-        setIsLoading(false);
+    setLoading(true);
+    try {
+      const response = await fetch(API_URL, options);
+      const result = await response.json();  // Parse the response as JSON
+      console.log(result);  // Log the result to verify its structure
+      setFlamesResult(result);  // Update state with the parsed result
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
     }
+    // setFemaleName('')
+    // setMaleName('')
+  };
 
   return (
-       <View style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.title}>
         <Text style={styles.titleText}>Flames Love Calculator</Text>
       </View>
@@ -61,9 +63,8 @@ export default LoveCalculator = () => {
         )}
       </View>
     </View>
-    
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -126,4 +127,3 @@ const styles = StyleSheet.create({
     padding: 40,
   },
 });
-}

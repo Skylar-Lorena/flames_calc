@@ -1,14 +1,13 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Image, Text, FlatList } from 'react-native';
-import heartImg from '../assets/heartImg.jpg';
 import Constants from 'expo-constants';
+import { StyleSheet, View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
+import heartImage from '../assets/mayur-gala-2PODhmrvLik-unsplash.jpg'; // Import the hero image from assets
 
-
-export default WelcomeScreen = ({navigation}) => {
+const WelcomeScreen = ({ navigation }) => {
   return (
-        <View style={styles.container}>
+    <View style={styles.container}>
       <Image
-        source={heartImg} // Use the imported image
+        source={heartImage} // Use the imported image
         style={styles.heroImage}
       />
       <Text style={styles.titleText}>Welcome to Flames Love Calculator</Text>
@@ -36,8 +35,10 @@ export default WelcomeScreen = ({navigation}) => {
       />
     </View>
   );
-}
-  
+};
+
+export default WelcomeScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -47,8 +48,8 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight,
   },
   heroImage: {
-    width: 50,  // Adjust the width to fit the screen
-    height: 60, // Adjust the height as needed
+    width: 300,  // Adjust the width to fit the screen
+    height: 200, // Adjust the height as needed
     marginBottom: 20,
   },
   titleText: {
@@ -96,7 +97,6 @@ const styles = StyleSheet.create({
   sampleItem: {
     padding: 10,
     backgroundColor: '#ffd8cc',
-    marginBottom: 4,
     borderRadius: 10,
     alignItems: 'center',
   },

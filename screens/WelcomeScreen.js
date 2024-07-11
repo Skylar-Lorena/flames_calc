@@ -1,7 +1,7 @@
 import React from 'react';
 import Constants from 'expo-constants';
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
-import heartImage from '../assets/mayur-gala-2PODhmrvLik-unsplash.jpg'; // Import the hero image from assets
+import heartImage from '../assets/heartImg.jpg'; // Import the hero image from assets
 
 const WelcomeScreen = ({ navigation }) => {
   return (
